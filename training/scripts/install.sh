@@ -13,5 +13,7 @@ sleep 5
 pip3 install wandb
 sleep 5
 python3 -m wandb login 0b4e8997ed39f4534ca7cab9123adf1bcc897ec0
-
+pip3 install vit-keras
+pip3 install opencv-python-headless
+pip3 install pandas 
 export PATH=~/.local/bin:$PATH

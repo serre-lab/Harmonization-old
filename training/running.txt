@@ -1,12 +1,96 @@
-./run.sh metapredictor-sa-1 us-central1-a v3-8 0.0007 10.0 &
-./run.sh metapredictor-sa-2 us-central1-a v3-8 0.0007 12.0 &
-./run.sh metapredictor-sa-3 us-central1-a v3-8 0.0007 14.0 &
-./run.sh metapredictor-sa-4 us-central1-a v3-8 0.0007 16.0 &
-./run.sh metapredictor-sa-5 us-central1-a v3-8 0.0007 20.0 &
-./run.sh metapredictor-sa-6 us-central1-a v3-8 0.0007 50.0 &
-./run.sh metapredictor-sa-1 us-central1-f v3-8 0.0007 10.0 &
-./run.sh metapredictor-sa-2 us-central1-f v3-8 0.0007 12.0 &
-./run.sh metapredictor-sa-3 us-central1-f v3-8 0.0007 14.0 &
-./run.sh metapredictor-sa-4 us-central1-f v3-8 0.0007 16.0 &
-./run.sh metapredictor-sa-5 us-central1-f v3-8 0.0007 20.0 &
-./run.sh metapredictor-sa-6 us-central1-f v3-8 0.0007 50.0 &
+bash run.sh metapredictor-sa-1 us-central1-a v4-8 0.0007 10.0 &
+bash run.sh metapredictor-sa-2 us-central1-a v3-8 0.0007 12.0 &
+bash run.sh metapredictor-sa-3 us-central1-a v3-8 0.0007 14.0 &
+bash run.sh metapredictor-sa-4 us-central1-a v3-8 0.0007 16.0 &
+bash run.sh metapredictor-sa-5 us-central1-a v3-8 0.0007 20.0 &
+bash run.sh metapredictor-sa-6 us-central1-a v3-8 0.0007 50.0 &
+
+# running v3 
+bash run.sh metapredictor-sa-1 us-central1-f v3-8 0.0007 10.0 &
+bash run.sh metapredictor-sa-2 us-central1-f v3-8 0.0007 12.0 &
+bash run.sh metapredictor-sa-3 us-central1-f v3-8 0.0007 14.0 &
+bash run.sh metapredictor-sa-4 us-central1-f v3-8 0.0007 16.0 &
+bash run.sh metapredictor-sa-5 us-central1-f v3-8 0.0007 20.0 &
+bash run.sh metapredictor-sa-6 us-central1-f v3-8 0.0007 50.0 &
+
+# Runing v4 mobilenet
+bash run.sh metapredictor-sa-1-mbnet1 us-central2-b v4-8 0.0007 10.0 &
+bash run.sh metapredictor-sa-2-mbnet1 us-central2-b v4-8 0.0007 12.0 &
+bash run.sh metapredictor-sa-3-mbnet1 us-central2-b v4-8 0.0007 14.0 &
+bash run.sh metapredictor-sa-4-mbnet1 us-central2-b v4-8 0.0007 16.0 &
+bash run.sh metapredictor-sa-5-mbnet1 us-central2-b v4-8 0.0007 20.0 &
+bash run.sh metapredictor-sa-6-mbnet1 us-central2-b v4-8 0.0007 50.0 &
+
+bash run.sh metapredictor-sa-7-mbnet1 us-central2-b v4-8 0.0005 10.0 &
+bash run.sh metapredictor-sa-8-mbnet1 us-central2-b v4-8 0.0005 12.0 &
+bash run.sh metapredictor-sa-9-mbnet1 us-central2-b v4-8 0.0005 14.0 &
+bash run.sh metapredictor-sa-10-mbnet1 us-central2-b v4-8 0.0005 16.0 &
+bash run.sh metapredictor-sa-11-mbnet1 us-central2-b v4-8 0.0005 20.0 &
+bash run.sh metapredictor-sa-12-mbnet1 us-central2-b v4-8 0.0005 50.0 &
+
+
+
+# VIT
+bash run.sh metapredictor-sa-1-vit us-central2-b v4-8 0.01 10.0 &
+bash run.sh metapredictor-sa-2-vit us-central2-b v4-8 0.01 12.0 &
+bash run.sh metapredictor-sa-3-vit us-central2-b v4-8 0.01 14.0 &
+bash run.sh metapredictor-sa-4-vit us-central2-b v4-8 0.01 16.0 &
+bash run.sh metapredictor-sa-5-vit us-central2-b v4-8 0.01 20.0 &
+bash run.sh metapredictor-sa-6-vit us-central2-b v4-8 0.01 50.0 &
+
+gcloud alpha compute tpus tpu-vm attach-disk metapredictor-sa-1-vit --disk=imagenet-ssd-shards --zone=us-central2-b --mode=read-only
+
+# Runing v4 
+bash run.sh metapredictor-sa-1-convnext us-central2-b v4-8 0.1 20.0 convnext &
+bash run.sh metapredictor-sa-2-convnext us-central2-b v4-8 0.01 20.0 convnext &
+bash run.sh metapredictor-sa-3-convnext us-central2-b v4-8 0.001 20.0 convnext &
+bash run.sh metapredictor-sa-4-convnext us-central2-b v4-8 0.0001 20.0 convnext &
+bash run.sh metapredictor-sa-5-convnext us-central2-b v4-8 0.1 50.0 convnext &
+bash run.sh metapredictor-sa-6-convnext us-central2-b v4-8 0.01 50.0 convnext &
+bash run.sh metapredictor-sa-7-convnext us-central2-b v4-8 0.001 50.0 convnext &
+bash run.sh metapredictor-sa-8-convnext us-central2-b v4-8 0.0001 50.0 convnext &
+bash run.sh metapredictor-sa-9-convnext us-central2-b v4-8 0.1 16.0 convnext &
+bash run.sh metapredictor-sa-10-convnext us-central2-b v4-8 0.01 16.0 convnext &
+bash run.sh metapredictor-sa-11-convnext us-central2-b v4-8 0.001 16.0 convnext &
+bash run.sh metapredictor-sa-12-convnext us-central2-b v4-8 0.0001 16.0 convnext &
+bash run.sh metapredictor-sa-9-convnext us-central2-b v4-8 0.1 0 convnext &
+bash run.sh metapredictor-sa-10-convnext us-central2-b v4-8 0.01 0 convnext &
+bash run.sh metapredictor-sa-11-convnext us-central2-b v4-8 0.001 0 convnext &
+bash run.sh metapredictor-sa-12-convnext us-central2-b v4-8 0.0001 0 convnext &
+
+
+bash run.sh metapredictor-sa-1-mobilenet1 us-central2-b v4-8 0.1 20.0 mobilenet &
+bash run.sh metapredictor-sa-2-mobilenet1 us-central2-b v4-8 0.01 20.0 mobilenet &
+bash run.sh metapredictor-sa-3-mobilenet1 us-central2-b v4-8 0.001 20.0 mobilenet &
+bash run.sh metapredictor-sa-4-mobilenet1 us-central2-b v4-8 0.0001 20.0 mobilenet &
+bash run.sh metapredictor-sa-5-mobilenet1 us-central2-b v4-8 0.1 50.0 mobilenet &
+bash run.sh metapredictor-sa-6-mobilenet1 us-central2-b v4-8 0.01 50.0 mobilenet &
+bash run.sh metapredictor-sa-7-mobilenet1 us-central2-b v4-8 0.001 50.0 mobilenet &
+bash run.sh metapredictor-sa-8-mobilenet1 us-central2-b v4-8 0.0001 50.0 mobilenet &
+bash run.sh metapredictor-sa-9-mobilenet1 us-central2-b v4-8 0.1 16.0 mobilenet &
+bash run.sh metapredictor-sa-10-mobilenet1 us-central2-b v4-8 0.01 16.0 mobilenet &
+bash run.sh metapredictor-sa-11-mobilenet1 us-central2-b v4-8 0.001 16.0 mobilenet &
+bash run.sh metapredictor-sa-12-mobilenet1 us-central2-b v4-8 0.0001 16.0 mobilenet &
+bash run.sh metapredictor-sa-9-mobilenet1 us-central2-b v4-8 0.1 0 mobilenet &
+bash run.sh metapredictor-sa-10-mobilenet1 us-central2-b v4-8 0.01 0 mobilenet &
+bash run.sh metapredictor-sa-11-mobilenet1 us-central2-b v4-8 0.001 0 mobilenet &
+bash run.sh metapredictor-sa-12-mobilenet1 us-central2-b v4-8 0.0001 0 mobilenet &
+
+
+bash run.sh metapredictor-sa-1-vit us-central2-b v4-8 0.1 20.0 vit &
+bash run.sh metapredictor-sa-2-vit us-central2-b v4-8 0.01 20.0 vit &
+bash run.sh metapredictor-sa-3-vit us-central2-b v4-8 0.001 20.0 vit &
+bash run.sh metapredictor-sa-4-vit us-central2-b v4-8 0.0001 20.0 vit &
+bash run.sh metapredictor-sa-5-vit us-central2-b v4-8 0.1 50.0 vit &
+bash run.sh metapredictor-sa-6-vit us-central2-b v4-8 0.01 50.0 vit &
+bash run.sh metapredictor-sa-7-vit us-central2-b v4-8 0.001 50.0 vit &
+bash run.sh metapredictor-sa-8-vit us-central2-b v4-8 0.0001 50.0 vit &
+bash run.sh metapredictor-sa-9-vit us-central2-b v4-8 0.1 16.0 vit &
+bash run.sh metapredictor-sa-10-vit us-central2-b v4-8 0.01 16.0 vit &
+bash run.sh metapredictor-sa-11-vit us-central2-b v4-8 0.001 16.0 vit &
+bash run.sh metapredictor-sa-12-vit us-central2-b v4-8 0.0001 16.0 vit &
+bash run.sh metapredictor-sa-9-vit us-central2-b v4-8 0.1 0 vit &
+bash run.sh metapredictor-sa-10-vit us-central2-b v4-8 0.01 0 vit &
+bash run.sh metapredictor-sa-11-vit us-central2-b v4-8 0.001 0 vit &
+bash run.sh metapredictor-sa-12-vit us-central2-b v4-8 0.0001 0 vit &
+Thomas api key 0b4e8997ed39f4534ca7cab9123adf1bcc897ec0
